@@ -1,21 +1,16 @@
 import React, { Component } from 'react'
 import { css } from 'glamor'
 import glamorous from 'glamorous'
+import { color, roundedCorners, centerContent, coverContent, fadeInTransition } from '../utils/constants'
 import LogoImg from '../images/logo.png'
 
-const centerContent = {
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'center',
-}
-
-const LogoContianer = glamorous.div({
+const LogoContianer = glamorous.button({
   ...centerContent,
   backgroundColor: 'rgb(22, 199, 158)',
   width: 538,
   height: 373,
   borderRadius: 8,
-  boxShadow: '0 22px 34px rgba(0, 0, 0, 0.18)',
+  boxShadow: `0 22px 34px ${color(.18).black}`,
   fontSize: 20,
   position: 'relative',
   overflow: 'hidden',
@@ -23,29 +18,25 @@ const LogoContianer = glamorous.div({
   transition: 'transform 250ms',
   translate: 'scale(1)',
   cursor: 'pointer',
+
   ':before': {
-    content: ' ',
-    width: '100%',
-    height: '100%',
-    backgroundColor: 'rgba(0, 0, 0, 0)',
-    position: 'absolute',
-    top: 0,
-    left: 0,
+    ...coverContent,
+    ...fadeInTransition,
+    backgroundColor: color(.6).black,
     zIndex: 10,
-    willChange: 'background-color',
-    transition: 'background-color 250ms',
   },
+
   ':after': {
     ...centerContent,
+    ...roundedCorners,
     opacity: 0,
-    color: 'rgb(255, 255, 255)',
+    color: color().white,
     content: 'Share',
     height: 60,
     width: 208,
     boxSizing: 'border-box',
-    borderRadius: 4,
+    border: `1px solid ${color().white}`,
     backgroundColor: 'rgba(244,246,248,0.1)',
-    border: '1px solid rgb(255, 255, 255)',
     position: 'absolute',
     top: '50%',
     left: '50%',
@@ -60,7 +51,7 @@ const LogoContianer = glamorous.div({
 const logoContainerHover = css({
   transform: 'scale(1.05)',
   ':before': {
-    backgroundColor: 'rgba(0,0,0,0.6)'
+    opacity: 1,
   },
   ':after': {
     opacity: 1,
@@ -86,15 +77,16 @@ export default class LogoCard extends Component {
     this.setState({ 'hover': false })
   }
   onClick = (e) => {
-    // Open share modal
+    const { onClick = () => {} } = this.props
+    onClick.call(this, e)
   }
 
   render() {
-
     const { hover } = this.state
 
     return (
       <LogoContianer
+        tabIndex={0}
         onMouseEnter={this.onMouseEnter}
         onMouseLeave={this.onMouseLeave}
         onClick={this.onClick}

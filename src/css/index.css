@@ -11,3 +11,25 @@ body {
   align-content: center;
   align-items: center;
   font-family: Avenir, Helvetica, Arial, sans-serif; }
+
+a {
+  text-decoration: none; }
+  a:hover {
+    text-decoration: underline; }
+
+img {
+  display: block;
+  width: 100%;
+  height: auto; }
+
+div {
+  box-sizing: border-box; }
+
+h1
+h2,
+h3 {
+  margin: 0;
+  color: #090B17; }
+
+p {
+  color: #090B17; }
