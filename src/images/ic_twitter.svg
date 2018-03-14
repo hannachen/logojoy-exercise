@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="15px" height="12px" viewBox="0 0 15 12" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 48.2 (47327) - http://www.bohemiancoding.com/sketch -->
+    <title>ic_twitter</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="006" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(-689.000000, -147.000000)">
+        <g id="share-group" transform="translate(592.000000, 135.000000)" fill="#FFFFFF">
+            <g id="twitter" transform="translate(87.000000, 0.000000)">
+                <text id="ic_twitter">
+                    <tspan x="10.125" y="24"></tspan>
+                </text>
+            </g>
+        </g>
+    </g>
+</svg>
