@@ -66,7 +66,7 @@ const overlayStyles = css({
 
 class App extends Component {
   state = {
-    modalIsOpen: true
+    modalIsOpen: false
   }
 
   openModal = () => {
