@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import { css } from 'glamor'
 import glamorous from 'glamorous'
 import { color, roundedCorners, centerContent, coverContent, fadeInTransition } from '../utils/constants'
-import LogoImg from '../images/logo.png'
 
 const LogoContianer = glamorous.button({
   ...centerContent,
@@ -92,7 +91,7 @@ export default class LogoCard extends Component {
         onClick={this.onClick}
         className={hover ? logoContainerHover : ''}
       >
-        <LogoImage src={LogoImg} />
+        <LogoImage src={`${process.env.PUBLIC_URL}/images/logo.png`} alt='Logo Thumbnail' />
       </LogoContianer>
     )
   }

@@ -6,32 +6,24 @@ import twitterIcon from '../images/icon-twitter.svg'
 import facebookIcon from '../images/icon-facebook.svg'
 import linkIcon from '../images/icon-link.svg'
 import emailIcon from '../images/icon-email.svg'
-import logoThumb from '../images/logo-thmb@2x.png'
-import tShirtThumb from '../images/t-shirt-thmb@2x.png'
-import bcThumb from '../images/bc-thmb@2x.png'
-import socialMedia from '../images/social-media@2x.png'
-import logoLg from '../images/logo-lg@2x.png'
-import tShirtLg from '../images/shirt-lg@2x.png'
-import bcLg from '../images/bc-lg@2x.png'
-import smLg from '../images/sm-lg@2x.png'
 import ShareImageList from './ShareImageList'
 
 const imageData = {
   logo: {
-    thumb: logoThumb,
-    lg: logoLg,
+    thumb: 'images/logo-thmb@2x.png',
+    lg: 'images/logo-lg@2x.png',
   },
   't-shirt': {
-    thumb: tShirtThumb,
-    lg: tShirtLg,
+    thumb: 'images/t-shirt-thmb@2x.png',
+    lg: 'images/shirt-lg@2x.png',
   },
   bc: {
-    thumb: bcThumb,
-    lg: bcLg,
+    thumb: 'images/bc-thmb@2x.png',
+    lg: 'images/bc-lg@2x.png',
   },
   'social-media': {
-    thumb: socialMedia,
-    lg: smLg,
+    thumb: 'images/social-media@2x.png',
+    lg: 'images/sm-lg@2x.png',
   }
 }
 
@@ -139,36 +131,31 @@ export default class SocialShare extends Component {
   }
 
   onMouseEnterThumb = (context) => {
-    console.log(context)
   }
   onMouseLeaveThumb = (context) => {
-    console.log(context)
   }
   onClickThumb = (context, key) => {
     this.setState({ selectedThumb: key })
-    console.log('context', context)
-    console.log('key', key)
   }
 
   render() {
 
     return (
       <ShareDiv>
-
         <ShareIcons>
           <p>Share with:</p>
           <ul className={socialMediaList}>
             <li className={`${socialIcon} twitter`}>
-              <img src={twitterIcon} />
+              <img src={twitterIcon} alt='Share on Twitter' />
             </li>
             <li className={`${socialIcon} facebook`}>
-              <img src={facebookIcon} />
+              <img src={facebookIcon} alt='Share on Facebook' />
             </li>
             <li className={`${socialIcon} email`}>
-              <img src={emailIcon} />
+              <img src={emailIcon} alt='Share with Email' />
             </li>
             <li className={`${socialIcon} link`}>
-              <img src={linkIcon} />
+              <img src={linkIcon} alt='Share Link' />
             </li>
           </ul>
         </ShareIcons>
