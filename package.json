@@ -2,6 +2,7 @@
   "name": "logojoy-exercise",
   "version": "0.1.0",
   "private": true,
+  "homepage": "http://fpo.website/logojoy",
   "dependencies": {
     "glamor": "^2.20.40",
     "glamorous": "^4.12.1",
