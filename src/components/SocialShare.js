@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { css } from 'glamor'
 import glamorous from 'glamorous'
+import { FacebookShareButton, TwitterShareButton, EmailShareButton } from 'react-share'
 import { color, row, circle, roundedCorners, centerContent } from '../utils/constants'
 import twitterIcon from '../images/icon-twitter.svg'
 import facebookIcon from '../images/icon-facebook.svg'
@@ -8,20 +9,28 @@ import linkIcon from '../images/icon-link.svg'
 import emailIcon from '../images/icon-email.svg'
 import ShareImageList from './ShareImageList'
 
+const shareUrl = 'http://fpo.website/logojoy/'
+const shareTitle = 'The #1 Free Logo Maker - Logojoy'
+const shareMessage = 'His Father was a sheriff in Bucks County and his Mother worked as a secretary in the office of the small township where they lived.'
+
 const imageData = {
   logo: {
+    id: '', // ID of entry used to share different images
     thumb: 'images/logo-thmb@2x.png',
     lg: 'images/logo-lg@2x.png',
   },
   't-shirt': {
+    id: '',
     thumb: 'images/t-shirt-thmb@2x.png',
     lg: 'images/shirt-lg@2x.png',
   },
   bc: {
+    id: '',
     thumb: 'images/bc-thmb@2x.png',
     lg: 'images/bc-lg@2x.png',
   },
   'social-media': {
+    id: '',
     thumb: 'images/social-media@2x.png',
     lg: 'images/sm-lg@2x.png',
   }
@@ -145,16 +154,22 @@ export default class SocialShare extends Component {
         <ShareIcons>
           <p>Share with:</p>
           <ul className={socialMediaList}>
-            <li className={`${socialIcon} twitter`}>
-              <img src={twitterIcon} alt='Share on Twitter' />
+            <li className={`${socialIcon} twitter`} onClick={this.onTweetShare}>
+              <TwitterShareButton url={shareUrl} title={shareTitle} hashtags={['logojoy']}>
+                <img src={twitterIcon} alt='Share on Twitter' />
+              </TwitterShareButton>
             </li>
-            <li className={`${socialIcon} facebook`}>
-              <img src={facebookIcon} alt='Share on Facebook' />
+            <li className={`${socialIcon} facebook`} onClick={this.onFbShare}>
+              <FacebookShareButton url={shareUrl}>
+                <img src={facebookIcon} alt='Share on Facebook' />
+              </FacebookShareButton>
             </li>
             <li className={`${socialIcon} email`}>
-              <img src={emailIcon} alt='Share with Email' />
+              <EmailShareButton url={shareUrl} subject={shareTitle} body={shareMessage + '\n\n' + shareUrl}>
+                <img src={emailIcon} alt='Share with Email' />
+              </EmailShareButton>
             </li>
-            <li className={`${socialIcon} link`}>
+            <li className={`${socialIcon} link`} onClick={this.onLinkShare}>
               <img src={linkIcon} alt='Share Link' />
             </li>
           </ul>
@@ -173,13 +188,8 @@ export default class SocialShare extends Component {
           <PreviewContainer>
             <img src={imageData[this.state.selectedThumb]['lg']} className={imagePreview} alt='Share Preview' />
             <MessageDiv>
-              <h3 className='share-title'>
-                The #1 Free Logo Maker - Logojoy
-              </h3>
-              <p>
-                His Father was a sheriff in Bucks County and his Mother worked as a secretary in the office of the small
-                township where they lived.
-              </p>
+              <h3 className='share-title'>{shareTitle}</h3>
+              <p>{shareMessage}</p>
               <a href='https://www.logojoy.com'>www.logojoy.com</a>
             </MessageDiv>
           </PreviewContainer>
