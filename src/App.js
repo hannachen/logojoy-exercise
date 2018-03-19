@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import Modal from 'react-modal'
 import { css } from 'glamor'
 import glamorous from 'glamorous'
-import {color, row, coverContent, roundedCorners } from './utils/constants'
+import { color, row, coverContent, roundedCorners } from './utils/constants'
 import LogoCard from './components/LogoCard'
 import SocialShare from './components/SocialShare'
 import closeImage from './images/close@2x.png'
@@ -16,14 +16,15 @@ const AppDiv = glamorous.div({
 })
 
 const CloseButton = glamorous.button({
-  width: 16,
-  height: 16,
-  padding: 0,
+  width: 21,
+  height: 21,
+  padding: 5,
   border: 0,
   position: 'absolute',
-  top: 20,
-  right: 20,
+  top: 15,
+  right: 15,
   cursor: 'pointer',
+  backgroundColor: color().white,
 })
 
 const modalStyles = css({
