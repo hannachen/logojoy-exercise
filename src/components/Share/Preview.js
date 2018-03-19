@@ -11,6 +11,7 @@ const PreviewContainer = glamorous.div({
   flexGrow: 2,
   '@media(max-width: 460px)': {
     width: '100%',
+    marginTop: 10,
   },
 })
 

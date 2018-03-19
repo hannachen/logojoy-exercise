@@ -27,6 +27,10 @@ const ThumbItem = glamorous.li({
   position: 'relative',
   overflow: 'hidden',
   ...roundedCorners,
+  '@media(max-width: 460px)': {
+    margin: 0,
+    width: '23%',
+  },
 
   ':last-child': {
     marginBottom: 0,

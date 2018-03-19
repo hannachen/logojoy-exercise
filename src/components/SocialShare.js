@@ -50,8 +50,11 @@ const ShareDiv = glamorous.div({
 const Wrapper = glamorous.div({
   ...row,
   alignItems: 'stretch',
+  flexBasis: '100%',
+  flexGrow: 0,
+  flexShrink: 1,
   '@media(max-width: 460px)': {
-    flexDirection: 'column',
+    display: 'block',
   },
 })
 

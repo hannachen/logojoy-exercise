@@ -75,8 +75,6 @@ class App extends Component {
   closeModal = () => {
     this.setState({ modalIsOpen: false })
   }
-  afterOpenModal = () => {
-  }
 
   render() {
     const appElement = document.getElementById('root')

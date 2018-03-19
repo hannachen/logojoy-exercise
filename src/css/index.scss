@@ -24,7 +24,9 @@ img {
   width: 100%;
   height: auto;
 }
-div {
+div,
+li,
+img {
   box-sizing: border-box;
 }
 h1
@@ -35,4 +37,8 @@ h3 {
 }
 p {
   color: #090B17;
+}
+img {
+  max-width: 100%;
+  flex-shrink: 0; // IE Reset
 }
