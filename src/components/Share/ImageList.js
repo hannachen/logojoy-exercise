@@ -1,8 +1,9 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import { css } from 'glamor'
 import glamorous from 'glamorous'
-import { color, coverContent, fadeInTransition, roundedCorners } from '../utils/constants'
-import CheckIcon from '../images/check@3x.png'
+import { color, coverContent, fadeInTransition, roundedCorners } from '../../utils/constants'
+import CheckIcon from '../../images/check@3x.png'
 
 const ThumbList = glamorous.ul({
   width: '20%',
@@ -26,6 +27,9 @@ const ThumbItem = glamorous.li({
   ':last-child': {
     marginBottom: 0
   },
+  ':hover': {
+    opacity: .8,
+  },
   [`&:before, &:after`]: {
     ...coverContent,
     ...fadeInTransition,
@@ -40,7 +44,7 @@ const ThumbItem = glamorous.li({
     backgroundImage: `url(${CheckIcon})`,
     backgroundPosition: 'center center',
     backgroundRepeat: 'no-repeat',
-  }
+  },
 })
 
 const selectedStyle = css({
@@ -49,7 +53,11 @@ const selectedStyle = css({
   },
 })
 
-export default function ShareImageList ({ imageData = {}, selected = null, onMouseEnter = () => {}, onMouseLeave = () => {}, onClick = () => {} }) {
+export default function ImageList(props) {
+  const { imageData,
+          selected = null,
+          onClick = () => {}
+        } = props
 
   return (
     <ThumbList>
@@ -57,13 +65,17 @@ export default function ShareImageList ({ imageData = {}, selected = null, onMou
         <ThumbItem
           key={index}
           className={selected === key ? selectedStyle : ''}
-          onMouseEnter={onMouseEnter}
-          onMouseLeave={onMouseLeave}
           onClick={e => onClick(e, key)}
         >
-          <img src={imageData[key]['thumb']} />
+          <img src={imageData[key]['thumb']} alt='Share Preview' />
         </ThumbItem>
       ))}
     </ThumbList>
   )
+}
+
+ImageList.propTypes = {
+  imageData: PropTypes.object.isRequired,
+  selected: PropTypes.string,
+  onClick: PropTypes.func,
 }

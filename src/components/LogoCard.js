@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 import { css } from 'glamor'
 import glamorous from 'glamorous'
 import { color, roundedCorners, centerContent, coverContent, fadeInTransition } from '../utils/constants'
@@ -55,7 +56,7 @@ const logoContainerHover = css({
   ':after': {
     opacity: 1,
     transform: 'scale(.95) translateX(-50%) translateY(-50%)',
-    transition: 'opacity 200ms 200ms',
+    transition: 'opacity 200ms 150ms',
   }
 })
 
@@ -95,5 +96,8 @@ export default class LogoCard extends Component {
       </LogoContianer>
     )
   }
+}
 
+LogoContianer.propTypes = {
+  onClick: PropTypes.func.isRequired,
 }

@@ -7,7 +7,7 @@ export const color = (opacity = 1) => {
     facebook: '#3F5CA0',
     email: '#090B17',
     link: '#EB066D',
-    keyline: '#D4DBE8'
+    keyline: `rgba(212, 219, 232, ${opacity})`,
   }
 }
 
