@@ -13,6 +13,9 @@ const ShareIcons = glamorous.div({
   ...row,
   ...centerContent,
   marginBottom: 20,
+  '@media(max-width: 460px)': {
+    marginBottom: 10,
+  },
   [`& p`]: {
     fontSize: 14,
     whiteSpace: 'nowrap',

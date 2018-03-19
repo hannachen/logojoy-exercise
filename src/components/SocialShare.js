@@ -39,11 +39,20 @@ const ShareDiv = glamorous.div({
   '@media(max-width: 800px)': {
     padding: '25px 35px 30px',
   },
+  '@media(max-width: 460px)': {
+    padding: '25px 20px 20px',
+  },
+  '@media(max-width: 320px)': {
+    paddingTop: 45,
+  },
 })
 
 const Wrapper = glamorous.div({
   ...row,
   alignItems: 'stretch',
+  '@media(max-width: 460px)': {
+    flexDirection: 'column',
+  },
 })
 
 export default class SocialShare extends Component {

@@ -8,7 +8,10 @@ const PreviewContainer = glamorous.div({
   width: '80%',
   display: 'flex',
   flexDirection: 'column',
-  flexGrow: 2
+  flexGrow: 2,
+  '@media(max-width: 460px)': {
+    width: '100%',
+  },
 })
 
 const MessageDiv = glamorous.div({
@@ -16,8 +19,8 @@ const MessageDiv = glamorous.div({
   padding: 25,
   border: `1px solid ${color().keyline}`,
   ...roundedCorners,
-  borderRadiusTopLeft: 0,
-  borderRadiusTopRight: 0,
+  borderTopLeftRadius: 0,
+  borderTopRightRadius: 0,
   borderTop: 0,
   flexGrow: 2,
   flexDirection: 'column',
@@ -37,8 +40,8 @@ const imagePreview = css({
   maxWidth: 545,
   maxHeight: 358,
   ...roundedCorners,
-  borderRadiusBottomLeft: 0,
-  borderRadiusBottomRight: 0,
+  borderBottomLeftRadius: 0,
+  borderBottomRightRadius: 0,
   flexGrow: 0,
 })
 

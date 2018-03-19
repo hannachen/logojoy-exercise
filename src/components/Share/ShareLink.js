@@ -14,10 +14,17 @@ const Message = glamorous.div({
   position: 'absolute',
   bottom: 0,
   left: '50%',
+  zIndex: 30,
   paddingTop: -15,
   transform: 'translateX(-50%) translateY(100%)',
   opacity: 0,
   transition: 'padding 75ms ease-in, opacity 75ms ease-in',
+  pointerEvents: 'none',
+  '@media(max-width: 460px)': {
+    left: 'auto',
+    right: -10,
+    transform: 'translateX(0) translateY(100%)',
+  },
   [`& em`]: {
     color: color().link,
     fontStyle: 'normal',
@@ -39,6 +46,10 @@ const Message = glamorous.div({
       width: 0,
       position: 'absolute',
       pointerEvents: 'none',
+      '@media(max-width: 460px)': {
+        left: 'auto',
+        right: 17,
+      }
     },
     ':before': {
       borderColor: color(0).keyline,
@@ -57,7 +68,8 @@ const Message = glamorous.div({
 
 const copiedStyles = css({
   paddingTop: 15,
-  opacity: 1
+  opacity: 1,
+  pointerEvents: 'auto',
 })
 
 export default class ShareLink extends Component {

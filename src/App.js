@@ -60,7 +60,7 @@ const overlayStyles = css({
     padding: 25,
   },
   '@media(max-width: 460px)': {
-    padding: 15,
+    padding: 10,
   },
 })
 

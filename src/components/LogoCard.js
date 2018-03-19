@@ -4,7 +4,7 @@ import { css } from 'glamor'
 import glamorous from 'glamorous'
 import { color, roundedCorners, centerContent, coverContent, fadeInTransition } from '../utils/constants'
 
-const LogoContianer = glamorous.button({
+const LogoContianer = glamorous.div({
   ...centerContent,
   backgroundColor: 'rgb(22, 199, 158)',
   width: 538,
@@ -18,14 +18,20 @@ const LogoContianer = glamorous.button({
   transition: 'transform 250ms',
   translate: 'scale(1)',
   cursor: 'pointer',
-
+  '@media(max-width: 800px)': {
+    width: 400,
+    height: 227,
+  },
+  '@media(max-width: 320px)': {
+    width: 290,
+    height: 201,
+  },
   ':before': {
     ...coverContent,
     ...fadeInTransition,
     backgroundColor: color(.6).black,
     zIndex: 10,
   },
-
   ':after': {
     ...centerContent,
     ...roundedCorners,
@@ -45,7 +51,14 @@ const LogoContianer = glamorous.button({
     transform: 'scale(1) translateX(-50%) translateY(-50%)',
     transformOrigin: '0 0',
     transition: 'opacity 200ms 0',
+  },
+  [`& img`]: {
+    '@media(max-width: 800px)': {
+      width: '45%'
+    }
   }
+
+
 })
 
 const logoContainerHover = css({

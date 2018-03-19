@@ -12,6 +12,10 @@ const ThumbList = glamorous.ul({
   display: 'flex',
   flexDirection: 'column',
   justifyContent: 'space-between',
+  '@media(max-width: 460px)': {
+    width: '100%',
+    flexDirection: 'row',
+  },
 })
 
 const ThumbItem = glamorous.li({
@@ -25,7 +29,12 @@ const ThumbItem = glamorous.li({
   ...roundedCorners,
 
   ':last-child': {
-    marginBottom: 0
+    marginBottom: 0,
+
+    '@media(max-width: 460px)': {
+      marginRight: 0,
+      marginBottom: 'auto',
+    },
   },
   ':hover': {
     opacity: .8,
@@ -37,6 +46,7 @@ const ThumbItem = glamorous.li({
   ':before': {
     zIndex: 9,
     backgroundColor: color(.6).black,
+    ...roundedCorners,
   },
   ':after': {
     zIndex: 10,
@@ -44,6 +54,9 @@ const ThumbItem = glamorous.li({
     backgroundImage: `url(${CheckIcon})`,
     backgroundPosition: 'center center',
     backgroundRepeat: 'no-repeat',
+    '@media(max-width: 800px)': {
+      backgroundSize: 25,
+    },
   },
 })
 
